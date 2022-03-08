@@ -14,17 +14,17 @@ app.set('view engine', 'ejs');
 
 
 app.get("/",function(req, res) {
-  res.render("home");
+  res.render("home", { headerContent: homeStartingContent});
 });
 
 
 app.get("/about", function(req, res) {
-  res.render("about");
+  res.render("about", { headerContent: aboutContent});
 });
 
 
 app.get("/contact", function(req, res) {
-  res.render("contact");
+  res.render("contact",{ headerContent: contactContent});
 });
 
 
