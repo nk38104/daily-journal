@@ -5,8 +5,7 @@
 
     <a href="/compose">New entry</a>
     <% posts.forEach(post => { %>
-        <h3><%= post.title %></h3>
-        <p><%= post.text %></p>
+        <%- include("post", { post: post }); %>
     <% }) %>
 
 <%- include("partials/footer"); -%>
