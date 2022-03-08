@@ -1,4 +1,12 @@
-<%- include("header") -%>
+<%- include("partials/header"); -%>
+
     <h1>Home</h1>
     <p><%= headerContent %></p>
-<%- include("footer") -%>
+
+    <a href="/compose">New entry</a>
+    <% posts.forEach(post => { %>
+        <h3><%= post.title %></h3>
+        <p><%= post.text %></p>
+    <% }) %>
+
+<%- include("partials/footer"); -%>
