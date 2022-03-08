@@ -25,7 +25,7 @@ const posts = [
 ];
 
 
-app.get("/",function(req, res) {
+app.get("/", function(req, res) {
 	res.render("home", { 
 		headerContent: homeHeaderContent,
 		posts: posts
@@ -45,6 +45,25 @@ app.get("/contact", function(req, res) {
 
 app.get("/compose", function(req, res) {
 	res.render("compose");
+});
+
+app.post("/compose", function(req, res) {
+	const { postTitle, postText } = req.body;
+
+	const newPost = {
+		title: postTitle,
+		text: postText
+	};
+
+	posts.push(newPost);
+
+	res.redirect("/");
+});
+
+app.post("/post", function(req, res) {
+	const postId = req.body.id;
+
+	res.render("post", { post: posts[postId]});
 });
 
 

@@ -4,8 +4,11 @@
     <p><%= headerContent %></p>
 
     <a href="/compose">New entry</a>
-    <% posts.forEach(post => { %>
-        <%- include("post", { post: post }); %>
+    <% posts.forEach((post, index) => { %>
+        <%- include("partials/postPartial", { post: post }); %>
+        <form action="/post" method="POST">
+            <button name="id" value=<%= index %>>Read more</button>
+        </form>
     <% }) %>
 
 <%- include("partials/footer"); -%>
