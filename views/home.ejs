@@ -5,9 +5,10 @@
 
     <a href="/compose">New entry</a>
     <% posts.forEach((post, index) => { %>
-        <%- include("partials/postPartial", { post: post }); %>
+        <h3><%= post.title %></h3>
+         <p><%= post.text.substring(100); %>...</p>
         <form action="/post" method="POST">
-            <button name="id" value=<%= index %>>Read more</button>
+            <button name="postId" value=<%= index %>>Read more</button>
         </form>
     <% }) %>
 

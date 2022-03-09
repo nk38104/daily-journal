@@ -1,5 +1,6 @@
 <%- include("partials/header"); -%>
 
-    <%- include("partials/postPartial.ejs", { post: post }) %>
-    
+    <h3><%= post.title %></h3>
+    <p><%= post.text %>...</p>
+        
 <%- include("partials/footer"); -%>
