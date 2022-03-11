@@ -4,11 +4,11 @@
     <p><%= headerContent %></p>
 
     <a href="/compose">New entry</a>
-    <% posts.forEach((post, index) => { %>
+    <% posts.forEach((post) => { %>
         <h3><%= post.title %></h3>
          <p><%= post.content.substring(100); %>...</p>
         <form action="/post" method="POST">
-            <button name="postId" value=<%= index %>>Read more</button>
+            <button name="postId" value=<%= post._id %>>Read more</button>
         </form>
     <% }) %>
 

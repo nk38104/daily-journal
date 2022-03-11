@@ -99,7 +99,14 @@ app.post("/compose", function(req, res) {
 app.post("/post", function(req, res) {
 	const { postId } = req.body;
 
-	res.render("post", { post: posts[postId]});
+	Post.findOne({ _id: postId }, function(err, foundPost) {
+		if (!err) {
+			res.render("post", { post: foundPost});
+		} else {
+			console.log(err);
+			res.redirect("/");
+		}
+	});
 });
 
 
