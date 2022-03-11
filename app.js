@@ -84,14 +84,14 @@ app.get("/compose", function(req, res) {
 });
 
 app.post("/compose", function(req, res) {
-	const { postTitle, postText } = req.body;
+	const { postTitle, postContent } = req.body;
 
-	// const newPost = {
-	// 	title: postTitle,
-	// 	text: postText
-	// };
+	const newPost = new Post({
+		title: postTitle,
+		content: postContent
+	});
 
-	// posts.push(newPost);
+	newPost.save();
 
 	res.redirect("/");
 });
